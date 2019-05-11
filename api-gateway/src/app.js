@@ -3,7 +3,7 @@ const fetch = require('node-fetch');
 const app = express();
 
 app.get('/', (req, res) => {
-  res.send('Hello World - from api-gateway ')
+  res.send('Hello World - from api-gateway')
 });
 
 app.get('/forward-to-other-service', (req, res) => {
