@@ -39,7 +39,7 @@
       "request": "launch",
       "name": "Jest Current File",
       "program": "${workspaceFolder}/node_modules/.bin/jest",
-      "args": ["${relativeFile}", "--config", "jest.unit.config.js"],
+      "args": ["${relativeFile}", "--config", "test-setup/jest.unit.config.js"],
       "console": "integratedTerminal",
       "internalConsoleOptions": "neverOpen",
       "disableOptimisticBPs": true

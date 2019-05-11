@@ -11,11 +11,12 @@ Each service could be in its own repo.
 - `jest` Unit test framework with coverage and support for file watch
 - `jest + supertest` Service level integration test framework with 
 - Cross service boundary integration tests (requires services to be running)
-
+- Single test execution with debugging support
+  - `npm run single-test [path to unit test file]`
+  - To debug a file open the test file in vscode and select the `Jest run current file`
 
 ## Next steps
 
-- Single test execution with debugging support
 - e2e tests
 - eslint rules
 - multiple env support local/test/uat/prod

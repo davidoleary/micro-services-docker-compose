@@ -6,7 +6,8 @@
   "description": "integration tests to run across service boundaries",
   "main": "index.js",
   "scripts": {
-    "integration": "jest tests --config test-setup/jest.integration.config.js --colors"
+    "integration": "jest tests --config test-setup/jest.integration.config.js --colors",
+    "single-test": "jest --config jest.integration.config.js"
   },
   "devDependencies": {
     "jest": "^24.8.0",
