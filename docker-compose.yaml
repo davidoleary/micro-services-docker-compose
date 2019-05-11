@@ -1,0 +1,45 @@
+version: '3' # docker compose version
+
+services:
+  # my-services-db:
+  #   image: postgres
+  #   environment:
+  #     POSTGRES_PASSWORD: "pguserpassword"
+  #   ports:
+  #     - "5435:5432"
+  api-gateway:
+    environment:
+      SENTRY_ENVIRONMENT: 'Development'
+      MY_SERVICE: 'http://my-service:9002'
+      # TPP_AUTHENTICATION_SERVICE: 'http://tpp-auth:3001'
+    build:
+      context: api-gateway
+    ports:
+      - "3001:9000" # can we just use 80 of all the same ports for every service?
+      - "9229:9229" # debug port?
+
+    volumes:
+      - ./api-gateway:/api-gateway/app
+    command: [
+      "sh",
+      "-c",
+      "npm run dev"
+      ]
+  my-service:
+    environment:
+      PORT: 9002
+      DATABASE_CONNECTION_STRING: postgresql://postgres:pguserpassword@my-service-db/postgres
+    build:
+      context: ./my-service
+    ports:
+      - "3002:9002" # http request between services is via the container port not exposed port..!
+      - "9230:9229" # debug port?
+    # depends_on:
+    #   - "my-service-db"
+    volumes:
+      - ./my-service:/my-service/app
+    command: [
+      "sh",
+      "-c",
+      "npm run dev"
+      ]
