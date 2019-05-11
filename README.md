@@ -8,10 +8,10 @@ Each service could be in its own repo.
 - `nodemon` watches for changes and restarts the app inside docker container.
 - `inspector/debugger` is enabled by default for development
 - `vscode` debug launcher configured for each service. This allows debugging of each services by attaching to its docker container.
+- `jest` Unit test framework
 
 ## Next steps
 
-- Unit test framework
 - Service level integration tests
 - Cross service integration tests
 - e2e tests
