@@ -1,0 +1,15 @@
+{
+  "name": "integration-tests",
+  "version": "1.0.0",
+  "private": true,
+  "author": "",
+  "description": "integration tests to run across service boundaries",
+  "main": "index.js",
+  "scripts": {
+    "integration": "jest tests --config test-setup/jest.integration.config.js --colors"
+  },
+  "devDependencies": {
+    "jest": "^24.8.0",
+    "supertest": "^4.0.2"
+  }
+}

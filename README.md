@@ -10,14 +10,19 @@ Each service could be in its own repo.
 - `vscode` debug launcher configured for each service. This allows debugging of each services by attaching to its docker container.
 - `jest` Unit test framework with coverage and support for file watch
 - `jest + supertest` Service level integration test framework with 
+- Cross service boundary integration tests (requires services to be running)
+
 
 ## Next steps
 
-- Cross service integration tests
 - Single test execution with debugging support
 - e2e tests
+- eslint rules
+- multiple env support local/test/uat/prod
+- CI/CD - including unit and integration test runs
 - Auth service between `api-gateway` and any other service
 - Extract any common code from services
 - Create a database service or a database service for each service
 - Create infrastructure as code for AWS deployment
 -  Secrets management
+-  Kubernetes 
