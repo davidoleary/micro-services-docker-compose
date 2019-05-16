@@ -19,6 +19,7 @@ Each service could be in its own repo.
 
 - e2e tests
 - eslint rules
+- APM integration
 - multiple env support local/test/uat/prod
 - CI/CD - including unit and integration test runs
 - Auth service between `api-gateway` and any other service
