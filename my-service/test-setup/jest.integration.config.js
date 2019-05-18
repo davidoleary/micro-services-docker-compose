@@ -7,10 +7,10 @@ const normalConfig = {
   coveragePathIgnorePatterns: [],
   coverageThreshold: {
     global: {
-      statements: 86,
-      branches: 53,
-      functions: 86,
-      lines: 86,
+      statements: 5,
+      branches: 5,
+      functions: 5,
+      lines: 5,
     },
   },
   testURL: 'http://localhost/',
