@@ -2,18 +2,28 @@ kind: pipeline
 name: default
 
 steps:
-- name: unit test - api-gateway
+- name: api-gateway - unit test
   image: node
   commands:
     - cd api-gateway
     - npm install
     - npm run unit-test
+- name: api-gateway - service level integration tests
+  image: node
+  commands:
+    - cd api-gateway
+    - npm install
     - npm run integration-test
-- name: unit test - my-service
+- name: my-service - unit test
   image: node
   commands:
     - cd my-service
     - npm install
     - npm run unit-test
+- name: my-service - service level integration tests
+  image: node
+  commands:
+    - cd my-service
+    - npm install
     - npm run integration-test
     
