@@ -1,5 +1,7 @@
 ## About
 
+[![Build Status](https://cloud.drone.io/api/badges/davidoleary/micro-services-docker-compose/status.svg)](https://cloud.drone.io/davidoleary/micro-services-docker-compose)
+
 Single repo with multiple services.
 
 Each service could be in its own repo.
