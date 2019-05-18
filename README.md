@@ -22,11 +22,14 @@ Each service could be in its own repo.
   - To see list of of issues `run npm lint`
   - To auto fix run `lint-fix`
 - APM with rollbar - using free trial
+- Added Drone CI steps
+  - Every push will trigger a build
+  - Currently separated unit test and integration tests into separate build steps for readability but these can be done in the same step to speed up the build.
 
 ## Next steps
 
 - multiple env support local/test/uat/prod
-- CI/CD - including unit and integration test runs
+- CI/CD - Run e2e tests and cross boundary integration tests
 - Auth service between `api-gateway` and any other service
 - Extract any common code from services
 - Create a database service or a database service for each service
