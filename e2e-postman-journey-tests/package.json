@@ -1,0 +1,15 @@
+{
+  "name": "e2e-postman-journey-tests",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "node_modules/.bin/newman run postman-collection/service-e2e-journey-test.postman_collection.json --global-var 'base_url=http://localhost:9000' -r cli,html"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "newman": "^4.3.1",
+    "newman-reporter-html": "^1.0.2"
+  }
+}

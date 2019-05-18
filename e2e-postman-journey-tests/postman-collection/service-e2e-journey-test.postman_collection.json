@@ -1,0 +1,156 @@
+{
+	"info": {
+		"_postman_id": "46f135cb-b0d7-4bf4-a7a9-d829a74f7803",
+		"name": "service-e2e-journey-test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get value from service via api-gateway",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "96fc81e7-47c6-4b7f-ae99-b2bb3f8a2936",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Returns an simple string \", function() {",
+							"    pm.expect(pm.response.text()).to.be.a('string')",
+							"    pm.expect(pm.response.text()).to.equal('data from other service: data from my-service API - 10')",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3001/forward-to-other-service/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"forward-to-other-service",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "1. GET id from service",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "577cf64a-e66f-47ac-9c47-ce62549809f5",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Returns an simple string \", function() {",
+							"    var responseJson = pm.response.json();",
+							"    pm.expect(responseJson).to.be.a('object')",
+							"    pm.expect(responseJson.id).to.be.a('string')",
+							"",
+							"    pm.environment.set(\"idFromPreviousReques\", responseJson.id);",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3001/api/v1/id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"v1",
+						"id"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2. POST id from service",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "577cf64a-e66f-47ac-9c47-ce62549809f5",
+						"exec": [
+							"const id = pm.environment.get(\"idFromPreviousReques\");",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Returns an simple string \", function() {",
+							"    pm.expect(pm.response.text()).to.be.a('string')",
+							"    pm.expect(pm.response.text()).to.equal('you posted ' + id)",
+							"",
+							"    //pm.environment.set(\"idFromPreviousReques\", responseJson.id);",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "5c97a15f-7736-4a72-ba10-58a843e3b202",
+						"exec": [
+							"pm.environment.get(\"idFromPreviousReques\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": \"{{idFromPreviousReques}}\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3001/api/v1/id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"v1",
+						"id"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
