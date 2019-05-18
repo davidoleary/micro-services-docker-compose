@@ -8,4 +8,10 @@ steps:
     - cd api-gateway
     - npm install
     - npm run unit-test
+- name: unit test - my-service
+  image: node
+  commands:
+    - cd my-service
+    - npm install
+    - npm run unit-test
     
