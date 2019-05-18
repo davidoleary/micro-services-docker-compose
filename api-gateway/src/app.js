@@ -1,7 +1,19 @@
 const express = require('express');
 const fetch = require('node-fetch');
 const bodyParser = require('body-parser');
+const Rollbar = require('rollbar');
 
+const isRollbarEnabled = false; // disable in example to avoid committing secrets
+let rollbar;
+if (isRollbarEnabled) {
+  rollbar = new Rollbar({
+    accessToken: '',
+    captureUncaught: true,
+    captureUnhandledRejections: true,
+  });
+}
+
+// record a generic message and send it to Rollbar
 const app = express();
 
 app.use(bodyParser.json());
@@ -9,6 +21,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.get('/', (req, res) => {
   res.send('Hello World - from api-gateway');
+  if (isRollbarEnabled) {
+    rollbar.log('Hello world!');
+  }
 });
 
 app.get('/forward-to-other-service', (req, res) => {
