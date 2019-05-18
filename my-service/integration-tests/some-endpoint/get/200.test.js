@@ -1,4 +1,4 @@
-const request = require('./node_modules/supertest');
+const request = require('supertest');
 
 let app;
 const ENDPOINT = '/api/some-endpoint';
