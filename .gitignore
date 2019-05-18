@@ -6,3 +6,4 @@ dist/
 coverage
 .DS_Store
  newman/
+e2e-postman-journey-tests/newman

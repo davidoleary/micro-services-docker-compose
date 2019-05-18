@@ -1,8 +1,8 @@
 const { add } = require('./index');
 
-describe('businessLogic',() => {
+describe('businessLogic', () => {
   describe('add', () => {
-    it('should add two numbers correctly',() => {
+    it('should add two numbers correctly', () => {
       expect(add(4, 3)).toEqual(7);
     });
   });

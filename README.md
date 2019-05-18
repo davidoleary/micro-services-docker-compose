@@ -16,10 +16,12 @@ Each service could be in its own repo.
   - To debug a file open the test file in vscode and select the `Jest run current file`.
 - e2e tests using `postman` and `newman` with an example of passing a value from the response of one request to the body of the next request.
   - Run from the `e2e-postman-journey-tests` project with `npm run test`
+- `eslint` enabled 
+  - To see list of of issues `run npm lint`
+  - To auto fix run `lint-fix`
 
 ## Next steps
 
-- eslint rules
 - APM integration
 - multiple env support local/test/uat/prod
 - CI/CD - including unit and integration test runs
