@@ -19,10 +19,10 @@ Each service could be in its own repo.
 - `eslint` enabled 
   - To see list of of issues `run npm lint`
   - To auto fix run `lint-fix`
+- APM with rollbar - using free trial
 
 ## Next steps
 
-- APM integration
 - multiple env support local/test/uat/prod
 - CI/CD - including unit and integration test runs
 - Auth service between `api-gateway` and any other service
