@@ -2,6 +2,8 @@ const express = require('express');
 const fetch = require('node-fetch');
 const bodyParser = require('body-parser');
 const Rollbar = require('rollbar');
+const deploy = require('deploy.json');
+
 const { 
   requestContext,  // common to all services
   correlationTraceIdGenerator 
@@ -67,6 +69,12 @@ app.post('/api/v1/id', (req, res) => {
     }).catch((err) => {
       res.status(500).send(err);
     });
+});
+
+app.get('/status', (req, res) => {
+  res.status(200).send({
+    ...deploy,
+  });
 });
 
 module.exports = app;
