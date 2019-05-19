@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "postinstall": "npm run generate-deploy-info",
+    "postinstall": "npm run generate-deploy-info --unsafe-perm",
     "dev": "nodemon --inspect=0.0.0.0 src/server.js",
     "unit-test": "jest --config test-setup/jest.unit.config.js --coverage",
     "integration-test": "jest integration-tests --config test-setup/jest.integration.config.js",
