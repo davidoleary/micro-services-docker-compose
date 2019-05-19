@@ -15,7 +15,11 @@ app.get('/api/some-endpoint', (req, res) => {
 });
 
 app.get('/api/v1/idcode', (req, res) => {
-  res.json({ id: uuidv4() });
+  // bounce back the correlationTraceId, in the real world this would be logged in datadog so a request can be followed across services
+  res.json({ 
+    id: uuidv4(),
+    traceId: req.headers.correlationTraceId,
+  });
 });
 
 app.post('/api/v1/idcode', (req, res) => {

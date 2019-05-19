@@ -25,10 +25,12 @@ Each service could be in its own repo.
 - Added Drone CI steps
   - Every push will trigger a build
   - Currently separated unit test and integration tests into separate build steps for readability but these can be done in the same step to speed up the build.
+- add identifier for each request to trace each request
 
 ## Next steps
 
 - multiple env support local/test/uat/prod
+- add status endpoint to each service
 - CI/CD - Run e2e tests and cross boundary integration tests
 - Auth service between `api-gateway` and any other service
 - Extract any common code from services
