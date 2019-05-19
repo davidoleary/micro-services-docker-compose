@@ -6,7 +6,7 @@ steps:
   image: node
   commands:
     - cd api-gateway
-    - npm install
+    - npm install --unsafe-perm
     - npm run unit-test
 - name: api-gateway - service level integration tests
   image: node
