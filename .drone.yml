@@ -1,9 +1,20 @@
+kind: secret
+name: docker_test
+get:
+  path: secret/data/docker
+  name: test
+
+
+
 kind: pipeline
 name: default
 
 steps:
 - name: api-gateway - unit test
   image: node
+  settings:
+    testSecretValue:
+      from_secret: docker_test
   commands:
     - cd api-gateway
     - npm install --unsafe-perm
@@ -14,6 +25,13 @@ steps:
     - cd api-gateway
     - npm install
     - npm run integration-test
+- name: publish  
+  image: plugins/ecr
+  settings:
+    access_key: a50d28f4dd477bc184fbd10b376de753
+    secret_key: bc5785d3ece6a9cdefa42eb99b58986f9095ff1c
+    repo: <account_id>.dkr.ecr.us-east-1.amazonaws.com/bar
+    registry: <account_id>.dkr.ecr.us-east-1.amazonaws.com
 - name: my-service - unit test
   image: node
   commands:
