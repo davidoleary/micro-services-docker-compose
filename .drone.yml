@@ -28,10 +28,10 @@ steps:
 - name: publish  
   image: plugins/ecr
   settings:
-    access_key: a50d28f4dd477bc184fbd10b376de753
-    secret_key: bc5785d3ece6a9cdefa42eb99b58986f9095ff1c
-    repo: <account_id>.dkr.ecr.us-east-1.amazonaws.com/bar
-    registry: <account_id>.dkr.ecr.us-east-1.amazonaws.com
+    access_key: <access_key>
+    secret_key: <secret_key>
+    repo: <account_id>.dkr.ecr.eu-west-1.amazonaws.com/microservice-example
+    registry: <account_id>.dkr.ecr.eu-west-1.amazonaws.com
 - name: my-service - unit test
   image: node
   commands:
