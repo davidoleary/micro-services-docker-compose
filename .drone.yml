@@ -3,7 +3,18 @@ name: docker_test
 get:
   path: secret/data/docker
   name: test
-
+name: access_key
+get:
+  path: secret/data/docker
+  name: access_key
+name: secret_key
+get:
+  path: secret/data/docker
+  name: secret_key
+name: account_id
+get:
+  path: secret/data/docker
+  name: account_id
 
 
 kind: pipeline
